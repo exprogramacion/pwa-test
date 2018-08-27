@@ -1,0 +1,184 @@
+<nav class="transfer-color" role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="#" class="brand-logo">Bamba</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#">Check In/Out</a></li>
+      <li><a href="#">Fun Things To Do</a></li>
+      <li><a href="#">Where to stay?</a></li>
+    </ul>
+
+    <ul id="nav-mobile" class="sidenav">
+      <li><a href="#">Check In/Out</a></li>
+      <li><a href="#">Fun Things To Do</a></li>
+      <li><a href="#">Where to stay?</a></li>
+    </ul>
+    <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+
+<div id="index-banner" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <h1 class="header center white-text text-lighten-2" style="padding-top:80px;text-shadow: 1px 1px #000;">Transfer Travel</h1>
+    </div>
+  </div>
+  <div class="parallax"><img src="assets/img/background1.jpg" alt="Unsplashed background img 1"></div>
+</div>
+
+
+<div class="container">
+  <div class="section">
+    
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="material-icons">flight_takeoff</i></h2>
+          <h5 class="center teal-text">Depart</h5>
+
+          <div class="light">
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker1" placeholder="Choose a date" >
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <mat-chip-list>
+              <mat-chip>9:00</mat-chip>
+              <mat-chip>10:00</mat-chip>
+              <mat-chip>12:00</mat-chip>
+            </mat-chip-list>
+            <p style="font-weight: bold">Bangkok Bus Terminal North Eastern</p>
+            <p>2 Kampha Phet Rd, Lat Yao, Khet Chatuchak, Krung Thep Maha Nakhon 10900, Tailandia <i class="material-icons teal-text">room</i></p>
+            <span class="teal-text">+855 96 999 3333</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m6">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="material-icons">flight_land</i></h2>
+          <h5 class="center teal-text">Arrive</h5>
+
+          <div class="light">
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker2" placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+            <mat-chip-list>
+              <mat-chip>9:00</mat-chip>
+              <mat-chip>10:00</mat-chip>
+              <mat-chip>12:00</mat-chip>
+            </mat-chip-list>
+            <h5 class="center teal-text">Depart</h5>
+            <p style="font-weight: bold">Giant Ibis Siem Reap</p>
+            <p>Svatha Blvd, Krong Siemp Reap, Camboya <i class="material-icons teal-text">room</i></p>
+            <span class="teal-text">+855 96 999 3333</span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    <br>
+    <div class="row center">
+      <a id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Confirm</a>
+    </div>
+    <mat-divider></mat-divider>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section">
+
+    <div class="row">
+      <div class="col s12 center">
+        <h4 class="teal-text grey-bg">Fun Things To Do</h4>
+
+        <div class="col s12 m6" *ngFor="let item of TTD">
+          <mat-card class="example-card">
+            <img mat-card-image src="{{item.src}}" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <h5 class="center teal-text">Adventure</h5>
+              <p style="font-weight: bold">{{item.title}}</p>
+              <p class="grey-text">$ {{item.price}} per person</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <i class="material-icons teal-text">{{((item.valoration>0) && (item.valoration<0.6))?'star_half':((item.valoration==1)||item.valoration>1)?'star':'star_border'}}</i>
+              <i class="material-icons teal-text">{{((item.valoration>1) && (item.valoration<1.6))?'star_half':((item.valoration==2)||item.valoration>2)?'star':'star_border'}}</i>
+              <i class="material-icons teal-text">{{((item.valoration>2) && (item.valoration<2.6))?'star_half':((item.valoration==3)||item.valoration>3)?'star':'star_border'}}</i>
+              <i class="material-icons teal-text">{{((item.valoration>3) && (item.valoration<3.6))?'star_half':((item.valoration==4)||item.valoration>4)?'star':'star_border'}}</i>
+              <i class="material-icons teal-text">{{((item.valoration>4) && (item.valoration<4.6))?'star_half':((item.valoration==5)||item.valoration>5)?'star':'star_border'}}</i>
+            </mat-card-actions>
+          </mat-card>          
+        </div>
+        
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="section">
+
+    <div class="row">
+      <div class="col s12 center">
+        <h4 class="teal-text grey-bg">Where to stay?</h4>
+
+        <div class="col s12 m6" *ngFor="let item of WTS">
+          <mat-card class="example-card">
+            <img mat-card-image src="{{item.src}}" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <h5 class="center teal-text">Hotel</h5>
+              <p style="font-weight: bold">{{item.title}}</p>
+              <p class="grey-text">$ {{item.price}} per person</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <i class="material-icons teal-text">{{((item.valoration>0) && (item.valoration<0.6))?'star_half':((item.valoration==1)||item.valoration>1)?'star':'star_border'}}</i>
+              <i class="material-icons teal-text">{{((item.valoration>1) && (item.valoration<1.6))?'star_half':((item.valoration==2)||item.valoration>2)?'star':'star_border'}}</i>
+              <i class="material-icons teal-text">{{((item.valoration>2) && (item.valoration<2.6))?'star_half':((item.valoration==3)||item.valoration>3)?'star':'star_border'}}</i>
+              <i class="material-icons teal-text">{{((item.valoration>3) && (item.valoration<3.6))?'star_half':((item.valoration==4)||item.valoration>4)?'star':'star_border'}}</i>
+              <i class="material-icons teal-text">{{((item.valoration>4) && (item.valoration<4.6))?'star_half':((item.valoration==5)||item.valoration>5)?'star':'star_border'}}</i>
+            </mat-card-actions>
+          </mat-card>          
+        </div>
+  
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="page-footer teal">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Why build a Progressive Web App?</h5>
+        <p class="grey-text text-lighten-4">Building a high-quality Progressive Web App has incredible benefits, making it easy to delight your users, grow engagement and increase conversions.</p>
+
+
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">Information</h5>
+        <ul>
+          <li><a class="white-text" href="#!">PWA Angular</a></li>
+        </ul>
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">Contact</h5>
+        <ul>
+          <li><a class="white-text" href="#!">exprogramacion@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    Made by Elihu Diaz
+    </div>
+  </div>
+</footer>
