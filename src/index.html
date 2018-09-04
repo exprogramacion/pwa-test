@@ -28,8 +28,9 @@
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
-      alert(JSON.stringify(data));
-      Push.create('Hello World!');
+      //alert(JSON.stringify(data));
+      console.log("Push:",data);
+      Push.create(data.message);
     });
   </script>
 </head>

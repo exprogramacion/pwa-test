@@ -29,7 +29,7 @@
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
       //alert(JSON.stringify(data));
-      Push.create(data);
+      Push.create(data.message);
     });
   </script>
 <link rel="stylesheet" href="https://exprogramacion.github.io/pwa-test/dist/pwa-angular/styles.27d4d011b38e19393988.css"></head>
