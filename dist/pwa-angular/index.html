@@ -8,17 +8,41 @@
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="manifest" href="/pwa-test/dist/pwa-angular/manifest.json">
+  <link rel="icon" type="image/x-icon" href="https://exprogramacion.github.io/pwa-test/dist/pwa-angular/favicon.ico">
+  <link rel="manifest" href="https://exprogramacion.github.io/pwa-test/dist/pwa-angular/manifest.json">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="theme-color" content="#1976d2">
-  <link href="/pwa-test/dist/pwa-angular/assets/materialize/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-<link rel="stylesheet" href="/pwa-test/dist/pwa-angular/styles.27d4d011b38e19393988.css"></head>
+  <link href="https://exprogramacion.github.io/pwa-test/dist/pwa-angular/assets/materialize/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <title>Pusher Test</title>
+  <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
+  <script src="https://pushjs.org/scripts/push.min.js"></script>
+  <script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('c44b7fdb52e927025b3e', {
+      cluster: 'us2',
+      forceTLS: true
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      alert(JSON.stringify(data));
+      Push.create('Hello World!');
+    });
+  </script>
+<link rel="stylesheet" href="https://exprogramacion.github.io/pwa-test/dist/pwa-angular/styles.27d4d011b38e19393988.css"></head>
 <body>
   <app-root></app-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="/pwa-test/dist/pwa-angular/assets/materialize/materialize.min.js"></script>
-  <script src="/pwa-test/dist/pwa-angular/assets/materialize/init.js"></script>
-<script type="text/javascript" src="/pwa-test/dist/pwa-angular/runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="/pwa-test/dist/pwa-angular/polyfills.7a0e6866a34e280f48e7.js"></script><script type="text/javascript" src="/pwa-test/dist/pwa-angular/main.e9037a285c31b6767ae8.js"></script></body>
+  <script src="https://exprogramacion.github.io/pwa-test/dist/pwa-angular/assets/materialize/materialize.min.js"></script>
+  <script src="https://exprogramacion.github.io/pwa-test/dist/pwa-angular/assets/materialize/init.js"></script>
+  <script>
+    $( document ).ready(function() {
+      $(".sidenav-trigger").sidenav();
+    });
+  </script>
+<script type="text/javascript" src="https://exprogramacion.github.io/pwa-test/dist/pwa-angular/runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="https://exprogramacion.github.io/pwa-test/dist/pwa-angular/polyfills.7a0e6866a34e280f48e7.js"></script><script type="text/javascript" src="https://exprogramacion.github.io/pwa-test/dist/pwa-angular/main.4c5fbd2e8878aa339eda.js"></script></body>
 </html>

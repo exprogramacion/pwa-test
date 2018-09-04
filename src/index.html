@@ -13,6 +13,25 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="theme-color" content="#1976d2">
   <link href="assets/materialize/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <title>Pusher Test</title>
+  <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
+  <script src="https://pushjs.org/scripts/push.min.js"></script>
+  <script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('c44b7fdb52e927025b3e', {
+      cluster: 'us2',
+      forceTLS: true
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      alert(JSON.stringify(data));
+      Push.create('Hello World!');
+    });
+  </script>
 </head>
 <body>
   <app-root></app-root>
